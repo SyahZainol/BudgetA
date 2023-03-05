@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- <title>Budgeting App</title> -->
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <h1>Budgeting App</h1> -->
+    <form>
+      <label for="income" style="font-size: 25px ;" >Income:</label>
+      <input type="number" id="income" required><br><br>
+      <label for="rent" style="font-size: 25px;" > Rent:</label>
+      <input type="number" id="rent" required><br><br>
+      <label for="utilities" style="font-size: 25px;">Utilities:</label>
+      <input type="number" id="utilities" required><br><br>
+      <label for="food" style="font-size: 25px;">Food:</label>
+      <input type="number" id="food" required><br><br>
+      <button type="button" onclick="calculate()">Calculate</button>
+    </form>
+    <div id="results"></div>
+
+    <script>
+      function calculate() {
+        // Get user input values
+        const income = parseInt(document.getElementById("income").value);
+        const rent = parseInt(document.getElementById("rent").value);
+        const utilities = parseInt(document.getElementById("utilities").value);
+        const food = parseInt(document.getElementById("food").value);
+
+        // Calculate total expenses
+        const expenses = rent + utilities + food;
+
+        // Calculate total income after expenses
+        const netIncome = income - expenses;
+
+        // Display results
+        const resultsDiv = document.getElementById("results");
+        resultsDiv.innerHTML = "<h2>Results:</h2>" +
+                               "<p>Total Income: $" + income + "</p>" +
+                               "<p>Total Expenses: $" + expenses + "</p>" +
+                               "<p>Net Income: $" + netIncome + "</p>";
+
+     <label for="income" style="font-size: 25px ;" >Income:</label>
+      }
+    </script>
+  </body>
+</html>

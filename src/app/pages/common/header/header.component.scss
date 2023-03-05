@@ -1,0 +1,28 @@
+// .nav-tabs {
+//     background-color: #e0dfe0;
+//     border-bottom: 1px solid #dee2e6;
+//     width: 100%;
+//   }
+  
+  .nav-link {
+    // color: #03080c;
+    font-size: 20px;
+    // font-weight: bold;
+    border: none;
+    border-radius: 0;
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+    width: 10%; /* set width to 25% for four buttons */
+  }
+  
+  .nav-link:hover, .nav-link:focus {
+    // color: #f8f9fa;
+    // background-color: #000000;
+    border: none;
+  }
+  
+  // .nav-link.active {
+  //   color: #f6f8fb;
+  //   background-color: #f8f8f8;
+  // }
+  
