@@ -1,0 +1,80 @@
+application {
+  config {
+    applicationType monolith
+    authenticationType jwt
+    baseName budgetingapps
+    blueprints []
+    buildTool maven
+    cacheProvider ehcache
+    clientFramework angularX
+    clientPackageManager npm
+    clientTheme none
+    creationTimestamp 1677633346835
+    databaseType sql
+    devDatabaseType mysql
+    dtoSuffix DTO
+    enableGradleEnterprise false
+    enableHibernateCache true
+    enableSwaggerCodegen false
+    enableTranslation false
+    gradleEnterpriseHost ""
+    jhiPrefix jhi
+    jhipsterVersion "7.9.3"
+    jwtSecretKey "MGM2YjhjNzg2MDAzZTJjMTRkMjg2MWQ4MDQ4NmZlOTlkOTBkZjA1MTU5NzA5YjZkOGMwMjRmM2I5OTkwMThiNDM5NmU4YzhhZmU5MGMzZDZhNWMxMDA3NTU4ZGU3YzBkNzg5YzRkMmU1YWYwODVhNDFkZmRjZmVkNTJkMzJhMTA="
+    languages [en, fr]
+    messageBroker false
+    microfrontend false
+    microfrontends []
+    nativeLanguage en
+    otherModules []
+    packageName com.unimap.budgetapps
+    prodDatabaseType mysql
+    reactive false
+    searchEngine false
+    serverPort 8080
+    serviceDiscoveryType no
+    skipClient false
+    skipUserManagement false
+    testFrameworks [cypress]
+    websocket false
+    withAdminUi true
+  }
+
+  entities Category, Customer, Expense, Income, MoneySaving
+}
+
+entity Category {
+  name String
+}
+entity Customer {
+  customername String required unique maxlength(100)
+  customeremail String required unique maxlength(100)
+  customeraddress String required unique maxlength(100)
+}
+entity Expense {
+  expensename String maxlength(50)
+  expenseamount BigDecimal
+  expensedateline LocalDate
+}
+entity Income {
+  incomename String unique maxlength(50)
+  incomeamount BigDecimal
+}
+entity MoneySaving {
+  moneysavingname String maxlength(50)
+  moneysavingamount BigDecimal
+  moneysavingdateline LocalDate
+  moneysavinggoals BigDecimal
+}
+relationship OneToOne {
+  Customer{income(incomename)} to Income
+  Customer{moneysaving(moneysavingname)} to MoneySaving
+  Expense{category(name)} to Category
+}
+relationship OneToMany {
+  Customer{expense} to Expense{customer(customername)}
+}
+
+paginate Category, Customer, Expense, Income, MoneySaving with pagination
+service Category, Customer, Expense, Income, MoneySaving with serviceImpl
+filter Category, Customer, Expense, Income, MoneySaving
