@@ -17,6 +17,12 @@ import { DashboardComponent } from './pages/public/dashboard/dashboard.component
 import { IncomeComponent } from './pages/public/income/income.component';
 import { ExpenseComponent } from './pages/public/expense/expense.component';
 import { SavingComponent } from './pages/public/saving/saving.component';
+import { LoginComponent } from './pages/public/login/login.component';
+
+import { TableModule } from "primeng/table";
+import { HttpClientModule } from "@angular/common/http";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InterceptorInterceptor } from './pages/core/auth/interceptor.interceptor';
 
 @NgModule({
   declarations: [
@@ -26,7 +32,8 @@ import { SavingComponent } from './pages/public/saving/saving.component';
     DashboardComponent,
     IncomeComponent,
     ExpenseComponent,
-    SavingComponent
+    SavingComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -35,9 +42,13 @@ import { SavingComponent } from './pages/public/saving/saving.component';
     ButtonModule,
     CheckboxModule,
     InputTextModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    TableModule,
     // DashboardModule
   ],
-  providers: [],
+  providers: [InterceptorInterceptor],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

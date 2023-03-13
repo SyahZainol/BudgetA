@@ -5,28 +5,34 @@ import { WelcomeComponent } from './pages/public/welcome/welcome.component';
 import { ExpenseComponent } from './pages/public/expense/expense.component';
 import { IncomeComponent } from './pages/public/income/income.component';
 import { SavingComponent } from './pages/public/saving/saving.component';
+import { LoginComponent } from "./pages/public/login/login.component";
 
 const routes: Routes = [
-  {path: '',
-component: WelcomeComponent
-},
-{path: 'dashboard',
-component: DashboardComponent, 
-},
-{path: 'income',
-component: IncomeComponent, 
-},
-{path: 'expense',
-component: ExpenseComponent, 
-},
-{path: 'saving',
-component: SavingComponent, 
-}
-
+  {
+    path: '',
+    component: WelcomeComponent
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+  },
+  {
+    path: 'income',
+    component: IncomeComponent,
+  },
+  {
+    path: 'expense',
+    component: ExpenseComponent,
+  },
+  {
+    path: 'saving',
+    component: SavingComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  }
 ]
-// {path: 'tutorial',
-// component: WelcomeComponent
-// }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
